@@ -47,9 +47,11 @@ function App() {
       return;
     }
 
+    console.log("Selected ingredients:", selectedIngredients);
+
     try {
       const response = await fetch(
-        "http://localhost:5000/api/generate-recipe", // Make sure the URL matches the backend server's endpoint
+        "http://localhost:3000/api/generate-recipe", // Make sure the URL matches the backend server's endpoint
         {
           method: "POST",
           headers: {
@@ -58,6 +60,8 @@ function App() {
           body: JSON.stringify({ ingredients: selectedIngredients }),
         }
       );
+
+      console.log("Response status:", response.status);
 
       if (!response.ok) {
         throw new Error("Failed to generate recipe");

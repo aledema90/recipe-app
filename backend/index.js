@@ -16,9 +16,12 @@ const SPOONACULAR_API_KEY = "5b300e7bede14f6baece74b6e541f444";
 app.post("/api/generate-recipe", async (req, res) => {
   const { ingredients } = req.body;
 
+  console.log("Received ingredients:", ingredients);
+
   try {
     // Construct the ingredients string for the API query
     const ingredientsList = ingredients.join(",");
+    console.log("Formatted ingredients for API:", ingredientsList);
 
     // Call the Spoonacular API
     const response = await axios.get(
@@ -31,6 +34,9 @@ app.post("/api/generate-recipe", async (req, res) => {
         },
       }
     );
+
+    console.log("API response status:", response.status);
+    console.log("API response data:", response.data);
 
     res.json(response.data); // Send the recipe data back to the client
   } catch (error) {
