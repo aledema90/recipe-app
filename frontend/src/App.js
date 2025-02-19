@@ -29,8 +29,6 @@ function App() {
     if (ingredient && !selectedIngredients.includes(ingredient)) {
       const updatedIngredients = [...selectedIngredients, ingredient];
       setSelectedIngredients(updatedIngredients);
-      // Call recipe generation logic here if needed
-      handleIngredientSelection(updatedIngredients);
     }
   };
 
@@ -40,21 +38,24 @@ function App() {
       (i) => i !== ingredient
     );
     setSelectedIngredients(updatedIngredients);
-    // Update recipe when an ingredient is removed
-    handleIngredientSelection(updatedIngredients);
   };
 
-  // Function to generate recipe from selected ingredients
-  const handleIngredientSelection = async (ingredients) => {
+  // Function to send selected ingredients to the backend for recipe generation
+  const handleGenerateRecipe = async () => {
+    if (selectedIngredients.length === 0) {
+      alert("Please select at least one ingredient.");
+      return;
+    }
+
     try {
       const response = await fetch(
-        "http://localhost:5000/api/generate-recipe",
+        "http://localhost:3000/api/generate-recipe",
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ ingredients }),
+          body: JSON.stringify({ ingredients: selectedIngredients }),
         }
       );
 
@@ -105,6 +106,10 @@ function App() {
             ))}
           </div>
         </div>
+        {/* Generate Recipe Button */}
+        <button onClick={handleGenerateRecipe} className="generate-button">
+          Generate Recipe
+        </button>
         {/* Conditionally render the RecipeDisplay component to show the generated recipe */}
         {recipe && <RecipeDisplay recipe={recipe} />}
       </header>
