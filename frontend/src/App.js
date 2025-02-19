@@ -20,8 +20,8 @@ const availableIngredients = [
 function App() {
   // State to store selected ingredients
   const [selectedIngredients, setSelectedIngredients] = useState([]);
-  // State to store the generated recipe string
-  const [recipe, setRecipe] = useState(null);
+  // State to store the generated recipe list
+  const [recipes, setRecipes] = useState(null);
 
   // Function to handle dropdown change for ingredient selection
   const handleSelectChange = (event) => {
@@ -49,7 +49,7 @@ function App() {
 
     try {
       const response = await fetch(
-        "http://localhost:3000/api/generate-recipe",
+        "http://localhost:5000/api/generate-recipe", // Make sure the URL matches the backend server's endpoint
         {
           method: "POST",
           headers: {
@@ -64,7 +64,7 @@ function App() {
       }
 
       const data = await response.json();
-      setRecipe(data.recipe);
+      setRecipes(data); // Assuming the backend sends back an array of recipes
     } catch (error) {
       console.error("Error:", error);
     }
@@ -110,8 +110,8 @@ function App() {
         <button onClick={handleGenerateRecipe} className="generate-button">
           Generate Recipe
         </button>
-        {/* Conditionally render the RecipeDisplay component to show the generated recipe */}
-        {recipe && <RecipeDisplay recipe={recipe} />}
+        {/* Conditionally render the RecipeDisplay component to show the generated recipes */}
+        {recipes && <RecipeDisplay recipes={recipes} />}
       </header>
     </div>
   );
