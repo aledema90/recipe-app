@@ -1,3 +1,9 @@
+body {
+  font-family: "Roboto", sans-serif; /* A modern sans-serif font */
+  margin: 0;
+  color: #333; /* Darker text color for better contrast */
+}
+
 .App {
   text-align: center;
 }
@@ -7,8 +13,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 20px;
-  background-color: #f7fbe4;
+  padding: 24px;
+  bbackground-color: #f0f9ff; /* Softer, modern background color */
 }
 
 .ingredient-list {
@@ -77,8 +83,23 @@
 }
 
 .ingredient-dropdown {
-  padding: 8px;
+  padding: 10px;
   font-size: 16px;
+  border-radius: 5px; /* Rounder edges for modern look */
+}
+
+.generate-button {
+  padding: 10px 20px;
+  background-color: #4caf50; /* Bright, lively color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.generate-button:hover {
+  background-color: #45a049; /* Slightly darker shade for hover */
 }
 
 .recipe-display {
@@ -92,6 +113,12 @@
   margin: 1rem;
   width: calc(30% - 2rem);
   box-sizing: border-box;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Modern shadow effect */
+  transition: 0.3s;
+}
+
+.recipe-card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
 }
 
 .recipe-card img {
