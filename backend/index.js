@@ -31,16 +31,13 @@ app.post("/api/generate-recipe", async (req, res) => {
     console.log("Formatted ingredients for API:", ingredientsList);
 
     // Call the Spoonacular API
-    const response = await axios.get(
-      "https://api.spoonacular.com/recipes/findByIngredients?apiKey=YOUR-API-KEY",
-      {
-        params: {
-          ingredients: ingredientsList,
-          number: 2, // Number of recipes you'd like to fetch
-          apiKey: SPOONACULAR_API_KEY,
-        },
-      }
-    );
+    const response = await axios.get(apiUrl, {
+      params: {
+        ingredients: ingredientsList,
+        number: 2, // Number of recipes you'd like to fetch
+        //apiKey: SPOONACULAR_API_KEY,
+      },
+    });
 
     console.log("API response status:", response.status);
     console.log("API response data:", response.data);

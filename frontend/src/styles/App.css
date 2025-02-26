@@ -24,10 +24,6 @@
   padding: 8px;
 }
 
-.recipe-display {
-  margin-top: 20px;
-}
-
 .navbar {
   display: flex;
   align-items: center;
@@ -75,7 +71,7 @@
 .remove-button {
   background: none;
   border: none;
-  color: #ff0000;
+  color: black;
   cursor: pointer;
   margin-left: 5px;
 }
@@ -83,4 +79,22 @@
 .ingredient-dropdown {
   padding: 8px;
   font-size: 16px;
+}
+
+.recipe-display {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.recipe-card {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  margin: 1rem;
+  width: calc(30% - 2rem);
+  box-sizing: border-box;
+}
+
+.recipe-card img {
+  max-width: 100%;
+  height: auto;
 }
