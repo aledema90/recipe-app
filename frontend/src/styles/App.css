@@ -8,6 +8,7 @@
   align-items: center;
   justify-content: center;
   padding: 20px;
+  background-color: #f7fbe4;
 }
 
 .ingredient-list {
@@ -30,7 +31,7 @@
 .navbar {
   display: flex;
   align-items: center;
-  background-color: #f7fbe4;
+  background-color: #f7e878;
   padding: 10px 20px;
   color: #333;
 }

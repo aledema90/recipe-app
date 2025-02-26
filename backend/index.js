@@ -12,6 +12,13 @@ app.use(express.json()); // To parse JSON bodies
 // Your Spoonacular API Key
 const SPOONACULAR_API_KEY = "5b300e7bede14f6baece74b6e541f444";
 
+const baseURL = "https://api.spoonacular.com/recipes/findByIngredients";
+
+// Construct the URL with query parameters
+const apiUrl = baseURL + "?apiKey=" + SPOONACULAR_API_KEY;
+
+console.log(apiUrl); // Output the constructed URL
+
 // Endpoint to generate recipe
 app.post("/api/generate-recipe", async (req, res) => {
   const { ingredients } = req.body;
@@ -25,7 +32,7 @@ app.post("/api/generate-recipe", async (req, res) => {
 
     // Call the Spoonacular API
     const response = await axios.get(
-      "https://api.spoonacular.com/recipes/findByIngredients",
+      "https://api.spoonacular.com/recipes/findByIngredients?apiKey=YOUR-API-KEY",
       {
         params: {
           ingredients: ingredientsList,
