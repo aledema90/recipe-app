@@ -33,7 +33,7 @@ body {
 .navbar {
   display: flex;
   align-items: center;
-  background-color: #f7e878;
+  background-color: #f8fde6;
   padding: 10px 20px;
   color: #333;
 }
@@ -115,6 +115,21 @@ body {
   box-sizing: border-box;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Modern shadow effect */
   transition: 0.3s;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .recipe-card {
+    width: calc(50% - 20px);
+  }
+}
+
+@media (min-width: 1024px) {
+  .recipe-card {
+    width: calc(33.333% - 20px);
+  }
 }
 
 .recipe-card:hover {
