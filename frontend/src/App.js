@@ -14,7 +14,9 @@ const availableIngredients = [
   "Beef",
   "Carrot",
   "Broccoli",
+  "Zucchine",
   "Pepper",
+  "Eggs",
 ];
 
 function App() {
